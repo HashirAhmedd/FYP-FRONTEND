@@ -3,6 +3,7 @@ import EmissionPrediction from "../components/EmissionPrediction";
 import ForecastsConfiguration from "../components/ForecastsConfiguration";
 import MonthlyTrends from "../components/MonthlyTrends";
 import PredictionSkeleton from "../components/PredictionSkeleton";
+import LLMResponse from "../components/LLMResponse";
 
 export default function Prediction() {
   const [loading, setLoading] = useState(false);
@@ -50,6 +51,7 @@ export default function Prediction() {
         <>
           {prediction != null && <EmissionPrediction prediction={prediction} />}
           {prediction != null && <MonthlyTrends prediction={prediction} />}
+          {prediction != null && <LLMResponse response={prediction.llm_insights} />}
         </>
       )}
     </div>

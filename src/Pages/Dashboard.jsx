@@ -4,6 +4,7 @@ import DashboardVisualizations from "../components/DashboardVisualizations";
 import EmissionsBySector from "../components/EmissionsBySector";
 import { useEffect, useState } from "react";
 import DashboardSkeleton from "../components/DashboardSkeleton";
+import LLMResponse from "../components/LLMResponse";
 
 export default function Dashboard() {
   const [historicalData, setHistoricalData] = useState(null);
@@ -56,6 +57,9 @@ export default function Dashboard() {
           )}
           {historicalData != null && (
             <EmissionsBySector historicalData={historicalData} />
+          )}
+          {historicalData != null && (
+            <LLMResponse response={historicalData.llm_insights} />
           )}
         </>
       )}
